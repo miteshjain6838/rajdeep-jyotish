@@ -543,3 +543,69 @@ html[lang="en"] .lang-pill .lp-en{opacity:1;font-size:.72rem;order:1}
   .reveal{opacity:1;transform:none}
   .slider-track{transition:none}
 }
+
+/* ==========================================================================
+   PREMIUM ENHANCEMENTS
+   ========================================================================== */
+
+/* Ambient aurora behind hero */
+.aurora{position:absolute;inset:0;z-index:-2;overflow:hidden;pointer-events:none}
+.aurora::before,.aurora::after{content:"";position:absolute;border-radius:50%;filter:blur(90px)}
+.aurora::before{width:52vw;height:52vw;background:radial-gradient(circle,var(--grad-gold),transparent 70%);
+  top:-12%;left:-6%;animation:aur1 18s ease-in-out infinite alternate}
+.aurora::after{width:46vw;height:46vw;background:radial-gradient(circle,var(--grad-blue),transparent 70%);
+  bottom:-16%;right:-6%;animation:aur2 22s ease-in-out infinite alternate}
+@keyframes aur1{to{transform:translate(14%,10%) scale(1.15)}}
+@keyframes aur2{to{transform:translate(-12%,-8%) scale(1.12)}}
+
+/* Hero social proof */
+.hero-proof{display:inline-flex;align-items:center;gap:10px;margin-bottom:24px;padding:9px 18px;
+  border-radius:999px;background:var(--chip);border:1px solid var(--line)}
+.hp-stars{color:var(--gold);letter-spacing:2px;font-size:.95rem}
+.hp-text{color:var(--muted);font-size:.9rem}
+.hp-text strong{color:var(--heading);font-weight:700}
+
+/* Credibility strip */
+.creds{position:relative;z-index:1;border-bottom:1px solid var(--line);background:var(--trust-grad2)}
+.creds-inner{max-width:var(--maxw);margin:0 auto;padding:18px 24px;display:flex;align-items:center;
+  justify-content:center;gap:26px;flex-wrap:wrap}
+.creds-label{font-family:var(--cinzel);text-transform:uppercase;letter-spacing:.2em;font-size:.7rem;color:var(--gold);white-space:nowrap}
+.creds-list{display:flex;align-items:center;gap:18px;flex-wrap:wrap;justify-content:center}
+.cred-item{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-weight:600;font-size:.92rem;white-space:nowrap}
+.cred-item svg{fill:var(--gold)}
+.cred-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);opacity:.5}
+
+/* Consultation CTA band */
+.cta-band{position:relative;z-index:1;padding:24px}
+.cta-band-inner{max-width:1080px;margin:0 auto;text-align:center;padding:66px 32px;border-radius:28px;
+  position:relative;overflow:hidden;background:linear-gradient(135deg,var(--gold-bright),var(--gold) 55%,#b8860b);
+  box-shadow:0 30px 80px -30px rgba(212,175,55,.55)}
+.cta-band-inner::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(700px 320px at 50% -30%,rgba(255,255,255,.28),transparent 60%)}
+.cta-band-inner::after{content:"";position:absolute;right:-40px;bottom:-40px;width:220px;height:220px;
+  border-radius:50%;border:1px solid rgba(42,30,0,.18);pointer-events:none}
+.cta-eyebrow{position:relative;font-family:var(--cinzel);text-transform:uppercase;letter-spacing:.24em;font-size:.72rem;color:rgba(42,30,0,.65)}
+.cta-title{position:relative;font-family:var(--deva);font-weight:700;font-size:clamp(1.6rem,3.6vw,2.6rem);color:#241900;margin:12px 0 10px;text-wrap:balance}
+.cta-sub{position:relative;color:rgba(36,25,0,.82);font-size:1.06rem;max-width:560px;margin:0 auto 28px}
+.cta-band-btns{position:relative;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-dark{background:#0b1437;color:var(--gold-bright)}
+.btn-dark:hover{background:#070d24;transform:translateY(-3px);box-shadow:0 16px 40px -14px rgba(0,0,0,.5)}
+.btn-outline-dark{background:transparent;color:#241900;border:1.5px solid rgba(36,25,0,.45)}
+.btn-outline-dark:hover{background:#241900;color:var(--gold-bright);transform:translateY(-3px)}
+
+/* Premium polish */
+.service-card,.why-card,.review-card,.contact-form{backdrop-filter:blur(4px)}
+.section-lead{max-width:600px;margin-left:auto;margin-right:auto}
+
+@media (max-width:960px){
+  .creds-inner{gap:14px;padding:16px 20px}
+}
+@media (max-width:560px){
+  .cta-band{padding:16px}
+  .cta-band-inner{padding:46px 22px;border-radius:22px}
+  .cta-band-btns .btn{flex:1;min-width:0}
+  .creds-list{gap:12px}
+  .cred-item{font-size:.84rem}
+  .cred-dot{display:none}
+  .hero-proof{margin-inline:auto}
+}
