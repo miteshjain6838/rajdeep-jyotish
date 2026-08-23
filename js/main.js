@@ -311,14 +311,23 @@
 
   var toggle = document.getElementById('navToggle');
   var links = document.getElementById('navLinks');
-  function closeMenu() { links.classList.remove('open'); toggle.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); }
+  var scrim = document.getElementById('navScrim');
+  function closeMenu() {
+    links.classList.remove('open');
+    toggle.classList.remove('open');
+    if (scrim) scrim.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }
   if (toggle && links) {
     toggle.addEventListener('click', function () {
       var open = links.classList.toggle('open');
       toggle.classList.toggle('open', open);
+      if (scrim) scrim.classList.toggle('open', open);
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
     links.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeMenu); });
+    if (scrim) scrim.addEventListener('click', closeMenu);
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
   }
 
   function armReveals() {
